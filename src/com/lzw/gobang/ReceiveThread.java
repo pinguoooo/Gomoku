@@ -42,7 +42,8 @@ public class ReceiveThread extends Thread {
                         link = JOptionPane.YES_OPTION;
                     }
                 }else {
-                    link = JOptionPane.YES_OPTION;
+                    link = JOptionPane.showConfirmDialog(frame, "收到" + host
+                            + "的联机请求，是否接受？"); // 询问是否接受联机
                 }
 
                 if (link == JOptionPane.YES_OPTION) { // 如果接受联机
