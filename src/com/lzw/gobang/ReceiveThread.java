@@ -33,10 +33,15 @@ public class ReceiveThread extends Thread {
                 String ip = serverSocket.getInetAddress().getHostAddress(); // 获取对方IP地址
 
                 int link = JOptionPane.NO_OPTION;
-                if (!frame.getUser().isActive()) {
-                    link = JOptionPane.showConfirmDialog(frame, "收到" + host
-                            + "的联机请求，是否接受？"); // 询问是否接受联机
-                } else {
+
+                if (frame.getUser()!=null){
+                    if (!frame.getUser().isActive()) {
+                        link = JOptionPane.showConfirmDialog(frame, "收到" + host
+                                + "的联机请求，是否接受？"); // 询问是否接受联机
+                    } else {
+                        link = JOptionPane.YES_OPTION;
+                    }
+                }else {
                     link = JOptionPane.YES_OPTION;
                 }
 

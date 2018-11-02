@@ -170,7 +170,7 @@ public class LoginPanel extends javax.swing.JPanel {
             socket = new Socket(ip, 9528); // 创建Socket连接对家主机
             if (socket.isConnected()) { // 如果连接成功
                 user = new UserBean();
-                user.setActive(flag);
+                user.setActive(flag);//设置主动(被动方)
                 // 获取当前时间对象
                 Time time = new Time(System.currentTimeMillis());
                 user.setName(name); // 初始化用户昵称
