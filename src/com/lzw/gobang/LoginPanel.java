@@ -68,6 +68,7 @@ public class LoginPanel extends javax.swing.JPanel {
         setForeground(java.awt.Color.gray);
         setOpaque(false);
         addMouseListener(new java.awt.event.MouseAdapter() {
+            @Override
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 formMouseClicked(evt);
             }
@@ -91,7 +92,7 @@ public class LoginPanel extends javax.swing.JPanel {
         gridBagConstraints.insets = new Insets(3, 0, 3, 0);
         add(nameTextField, gridBagConstraints);
         //设置本地用户名
-        ipTextField.setText(UserInfoUtils.getUserName()!=null?UserInfoUtils.getUserName():"");
+        nameTextField.setText(UserInfoUtils.getUserName()!=null?UserInfoUtils.getUserName().trim():"");
 
         jLabel2.setFont(new java.awt.Font("楷体_gbk", 2, 24));
         jLabel2.setForeground(java.awt.Color.white);
@@ -109,13 +110,13 @@ public class LoginPanel extends javax.swing.JPanel {
         gridBagConstraints.gridwidth = 2;
         gridBagConstraints.insets = new Insets(3, 0, 3, 0);
         add(ipTextField, gridBagConstraints);
-
         //设置本地ip
-        ipTextField.setText(UserInfoUtils.getInetAddress()!=null?UserInfoUtils.getInetAddress():"");
+        ipTextField.setText(UserInfoUtils.getInetAddress()!=null?UserInfoUtils.getInetAddress().trim():"");
 
 
         loginButton.setText("登录");
         loginButton.addActionListener(new java.awt.event.ActionListener() {
+            @Override
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 loginButtonActionPerformed(evt);
             }
@@ -128,6 +129,7 @@ public class LoginPanel extends javax.swing.JPanel {
 
         closeButton.setText("关闭");
         closeButton.addActionListener(new java.awt.event.ActionListener() {
+            @Override
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 closeButtonActionPerformed(evt);
             }
