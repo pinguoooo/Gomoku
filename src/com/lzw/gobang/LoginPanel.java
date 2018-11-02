@@ -1,5 +1,7 @@
 package com.lzw.gobang;
 
+import com.lzw.utils.UserInfoUtils;
+
 import java.awt.AlphaComposite;
 import java.awt.Composite;
 import java.awt.Graphics;
@@ -24,7 +26,6 @@ import javax.swing.JOptionPane;
 public class LoginPanel extends javax.swing.JPanel {
     //标识
     public static boolean flag = true;
-
     private Socket socket;
     private UserBean user;
     protected boolean linked;
@@ -89,6 +90,8 @@ public class LoginPanel extends javax.swing.JPanel {
         gridBagConstraints.gridwidth = 2;
         gridBagConstraints.insets = new Insets(3, 0, 3, 0);
         add(nameTextField, gridBagConstraints);
+        //设置本地用户名
+        ipTextField.setText(UserInfoUtils.getUserName()!=null?UserInfoUtils.getUserName():"");
 
         jLabel2.setFont(new java.awt.Font("楷体_gbk", 2, 24));
         jLabel2.setForeground(java.awt.Color.white);
@@ -106,6 +109,10 @@ public class LoginPanel extends javax.swing.JPanel {
         gridBagConstraints.gridwidth = 2;
         gridBagConstraints.insets = new Insets(3, 0, 3, 0);
         add(ipTextField, gridBagConstraints);
+
+        //设置本地ip
+        ipTextField.setText(UserInfoUtils.getInetAddress()!=null?UserInfoUtils.getInetAddress():"");
+
 
         loginButton.setText("登录");
         loginButton.addActionListener(new java.awt.event.ActionListener() {
@@ -175,7 +182,9 @@ public class LoginPanel extends javax.swing.JPanel {
                 // 获取当前时间对象
                 Time time = new Time(System.currentTimeMillis());
                 user.setName(name); // 初始化用户昵称
+                UserInfoUtils.saveUsername(name);
                 user.setHost(InetAddress.getLocalHost()); // 初始化用户IP
+                UserInfoUtils.saveINetAddress(ipText);
                 user.setTime(time); // 初始化用户登录时间
                 socket.setOOBInline(true); // 启用紧急数据的接收
                 mainFrame.setSocket(socket); // 设置主窗体的Socket连接对象
