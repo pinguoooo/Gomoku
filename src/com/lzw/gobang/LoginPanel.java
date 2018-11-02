@@ -82,6 +82,7 @@ public class LoginPanel extends javax.swing.JPanel {
         gridBagConstraints.anchor = GridBagConstraints.EAST;
         add(jLabel1, gridBagConstraints);
 
+
         gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.fill = GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipady = -5;

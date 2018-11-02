@@ -8,6 +8,7 @@ import java.sql.Time;
  * @author Administrator
  */
 public class UserBean implements Serializable {
+
     private boolean isActive;
     protected String name = "游客";
     protected InetAddress host;

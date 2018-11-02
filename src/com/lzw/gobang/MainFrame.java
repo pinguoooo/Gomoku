@@ -63,6 +63,7 @@ public class MainFrame extends javax.swing.JFrame {
      *            - 本地用户对象
      */
     public void setUser(UserBean user) {
+
         this.user = user;
         // 向用户信息面板添加昵称
         userInfoTextArea.setText("昵称：" + user.getName() + "\n");
